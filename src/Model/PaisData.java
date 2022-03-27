@@ -51,8 +51,8 @@ public class PaisData {
 			String []data = line.split(";");
 			for(int i = 1; i<7; i++) {
 				medalla[i-1] = Integer.parseInt(data[i]); 
-				addPais(new Pais(data[0],medalla[0],medalla[1],medalla[2],medalla[3],medalla[4],medalla[5]));
 			}
+			addPais(new Pais(data[0],medalla[0],medalla[1],medalla[2],medalla[3],medalla[4],medalla[5]));
 		}
 	}
 	public void bubbleSort() {
@@ -105,13 +105,13 @@ public class PaisData {
 						if (o1.getBronceHombre()-o2.getBronceHombre() == 0) {
 							return o1.getName().compareTo(o2.getName());
 						} else {
-							return (o1.getBronceHombre()-o2.getBronceHombre());
+							return (o1.getBronceHombre()-o2.getBronceHombre())*-1;
 						}
 					} else {
-						return (o1.getPlataHombre()-o2.getPlataHombre());
+						return (o1.getPlataHombre()-o2.getPlataHombre())*-1;
 					}
 				} else { 
-					return (o1.getOroHombre()-o2.getOroHombre());
+					return (o1.getOroHombre()-o2.getOroHombre())*-1;
 				}
 				
 			};
@@ -123,8 +123,8 @@ public class PaisData {
 		
 		manCompare();
 		System.out.println("Masculino");
-		for(Pais p: paises) {
-			System.out.println(p.getName()+" "+p.getOroHombre()+" "+p.getPlataHombre()+" "+p.getBronceHombre());
+		for(int i = 0; i<paises.size();i++) {
+			System.out.println(paises.get(i).getName()+" "+paises.get(i).getOroHombre()+" "+paises.get(i).getPlataHombre()+" "+paises.get(i).getBronceHombre());
 		}
 		
 		System.out.println("");
@@ -147,6 +147,8 @@ public class PaisData {
 			int bronce = p.getBronceMujer()+p.getBronceHombre();
 			System.out.println(p.getName()+" "+oro+" "+plata+" "+bronce);
 		}
+		
+		
 	} 
 	
 	
